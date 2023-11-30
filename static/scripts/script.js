@@ -2,17 +2,18 @@ let prevScrollpos = window.pageYOffset;
 
 window.onscroll = function() {
     let currentScrollPos = window.pageYOffset;
+    let navBar = document.querySelector('nav');
 
     if (prevScrollpos > currentScrollPos) {
-        document.getElementById("nav-bar").style.top = "0";
+        navBar.style.top = "0";
     } else {
-        document.getElementById("nav-bar").style.top = "-60px"; /* Adjust based on the height of your nav bar */
+        navBar.style.top = "-60px"; /* Adjust based on the height of your nav bar */
     }
 
     prevScrollpos = currentScrollPos;
 };
 
-let navBar = document.getElementById('nav-bar');
+let navBar = document.querySelector('nav');
 
 navBar.addEventListener('mouseenter', function() {
     navBar.classList.remove('hidden');
