@@ -6,12 +6,14 @@ body {
 
 #nav-bar {
     background-color: #00ff7f;
-    padding: 10px;
+    padding: 0px;
     position: fixed;
-    top: 0;
-    width: 100%;
+    top: 15px;
+    width: 98%;
     z-index: 1000;
     transition: top 0.3s;
+    border-radius: 400px;
+    margin-left: 12px;
 }
 
 #nav-bar ul {
@@ -26,21 +28,51 @@ body {
     font-family: serif;
     margin: 1px;
     margin-right: 6px;
-    border-radius: 14px;
-    padding: 10px 20px;
+    padding: 10px;
     display: inline-block;
-    transition: background-color 0.6s, color 0.6s;
+    transition: background-color 0.3s, color 5s;
+}
+
+#Home, #Products, #Contacts, #About {
+    position: relative;
+}
+
+#Home, #Products, #Contacts, #About {
+    position: relative;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 #Home:hover, #Products:hover, #Contacts:hover, #About:hover {
-    background-color: #ffffff; /* Dark green background color on hover */
-    color: #333; /* Light gray text color on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
 }
+
+#Home::after, #Products::after, #Contacts::after, #About::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #333;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+#Home::after, #Products::after, #Contacts::after, #About::after {
+    transform-origin: bottom left;
+}
+
+#Home:hover::after, #Products:hover::after, #Contacts:hover::after, #About:hover::after {
+    transform: scaleX(1);
+}
+
 
 
 #nav-bar li {
     display: inline-block;
-    margin-right: 20px;
+    /* margin-right: 20px; */
 }
 
 #nav-bar a {
@@ -48,21 +80,18 @@ body {
     color: #333;
     font-weight: bold;
     font-size: 19px;
-}
-
-.hidden {
-    top: -60px;
+    height: max-content;
 }
 
 /* Styles for the cover section */
 #cover {
-    background-color: #00ff7f;
-    /* background: url('cover2.jpg') center/cover no-repeat; */
+    /* background-color: #00ff7f; */
+    background: url('../components/cover4.jpg') center/cover no-repeat;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: space-between;
     color: #fff;
-    padding: 100px;
+    padding: 140px;
 }
 
 #cover h1 {
@@ -70,17 +99,29 @@ body {
     margin-right: auto;
     padding-right: 30px;
     padding-left: 30px;
-    color: #003366; /* Dark blue for trust */
-    background-color: #00ff7f; /* Background color */
+    color: #ffffff; /* Dark blue for trust */
+    display: inline-block; /* Ensure the background covers the entire width of the text */
+    padding: 10px; /* Adjust padding as needed */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Add a box shadow for the shadow effect */
+    margin-top: 17px;
+    margin-bottom: 135px;
+}
+
+#cover div {
+    padding-top: 0px;
 }
 
 
 #cover .about-quote {
     color: #333;
-    max-width: 350px;
-    min-width: 350px;
-    font-style: italic;
-    background-color: #fff; /* Add white background to about-quote */
+    max-width: 250px;
+    min-width: 250px;
+    max-height: 180px;
+    align-items: center;
+    /* justify-content: center; */
+    text-align: center;
+    font-style: italic; 
+    background-color: rgba(255, 255, 245, 0.6); /* Add white background to about-quote */
     padding: 20px; /* Add padding for better visibility */
     border-radius: 10px;
 }
